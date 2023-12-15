@@ -1,10 +1,5 @@
-<h1>MumiakGuides</h1>
-
-{% for listing in object_list %}
-
-
 {% if listing.logo %}
-<a href="{% url 'listings' listing.pk %}"><img src="{{ listing.logo.url }}" alt="Logo"></a>
+<img src="{{ listing.logo.url }}" alt="Logo">
 {% endif %}
 
 
@@ -24,4 +19,4 @@
 <p>Payment Method: {{ listing.payment_method }}</p>
 <p>Additional Information: {{ listing.other_info }}</p>
 
-{% endfor %}
+<a href="{% url 'home' %}">Home</a>
