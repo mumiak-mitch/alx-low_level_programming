@@ -24,17 +24,29 @@
 
     <div class="card mt-4">
         <div class="card-body">
-            <p class="card-text">Hours: {{ listing.hours }}</p>
-            <p class="card-text">Date: {{ listing.date }}</p>
-            <p class="card-text">Start Time: {{ listing.start_time }}</p>
-            <p class="card-text">End Time: {{ listing.end_time }}</p>
-            <p class="card-text">Social Media: {{ listing.social_media }}</p>
-            <p class="card-text">Location Map: {{ listing.map_url }}</p>
+            {% if listing.hours %}
+            <p class="card-text">Operation Hours: {{ listing.hours }}</p>
+            {% endif %}
+
+            {% if listing.date %}
+            <p class="card-text">Event Date: {{ listing.date }}</p>
+            {% endif %}
+
+            <p class="card-text">Opening Time/Start Time: {{ listing.start_time }}</p>
+            <p class="card-text">Closing Time/End Time: {{ listing.end_time }}</p>
+            <p class="card-text">Social Media Handles: {{ listing.social_media }}</p>
+
+            <a href="{{ listing.map_url }}" target="_blank">Location Map</a>
+            <br><br>
+            
             <p class="card-text">Mobile No: {{ listing.mobile_no }}</p>
             <p class="card-text">Email: {{ listing.email }}</p>
             <p class="card-text">Address: {{ listing.address }}</p>
             <p class="card-text">Payment Method: {{ listing.payment_method }}</p>
+
+            {% if listing.other_info %}
             <p class="card-text">Additional Information: {{ listing.other_info }}</p>
+            {% endif %}
         </div>
     </div>
 
