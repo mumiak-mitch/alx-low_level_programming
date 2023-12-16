@@ -1,22 +1,45 @@
-{% if listing.logo %}
-<img src="{{ listing.logo.url }}" alt="Logo">
-{% endif %}
+{% extends 'base.html' %}
+{% block title %} | {{ listing.name }} {% endblock %}
 
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            {% if listing.logo %}
+            <img src="{{ listing.logo.url }}" class="img-fluid" style="width: 400px; height: 250px;" alt="Logo">
+            {% endif %}
+        </div>
 
-<h2>{{ listing.name }}</h2>
-<h2>{{ listing.author.first_name }}  {{ listing.author.last_name }}</h2>
-<p>Description: {{ listing.description }}</p>
-<p>Website: {{ listing.web_url }}</p>
-<p>Hours: {{ listing.hours }}</p>
-<p>Date: {{ listing.date }}</p>
-<p>Start Time: {{ listing.start_time }}</p>
-<p>End Time: {{ listing.end_time }}</p>
-<p>Social Media: {{ listing.social_media }}</p>
-<p>Location Map: {{ listing.map_url }}</p>
-<p>Mobile No: {{ listing.mobile_no }}</p>
-<p>Email: {{ listing.email }}</p>
-<p>Address: {{ listing.address }}</p>
-<p>Payment Method: {{ listing.payment_method }}</p>
-<p>Additional Information: {{ listing.other_info }}</p>
+        <div class="col-md-6">
+            <h2>{{ listing.name }}</h2>
+            <h5 class="mb-4">{{ listing.author.first_name }} {{ listing.author.last_name }}</h5>
 
-<a href="{% url 'home' %}">Home</a>
+            <p>{{ listing.description }}</p>
+            
+            {% if listing.web_url %}
+            <a href="{{ listing.web_url }}" target="_blank">Website</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <p class="card-text">Hours: {{ listing.hours }}</p>
+            <p class="card-text">Date: {{ listing.date }}</p>
+            <p class="card-text">Start Time: {{ listing.start_time }}</p>
+            <p class="card-text">End Time: {{ listing.end_time }}</p>
+            <p class="card-text">Social Media: {{ listing.social_media }}</p>
+            <p class="card-text">Location Map: {{ listing.map_url }}</p>
+            <p class="card-text">Mobile No: {{ listing.mobile_no }}</p>
+            <p class="card-text">Email: {{ listing.email }}</p>
+            <p class="card-text">Address: {{ listing.address }}</p>
+            <p class="card-text">Payment Method: {{ listing.payment_method }}</p>
+            <p class="card-text">Additional Information: {{ listing.other_info }}</p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,27 +1,32 @@
-<h1>MumiakGuides</h1>
+{% extends 'base.html' %}
 
-{% for listing in object_list %}
+{% block content %}
+<div class="container">
+    <h1 class="mb-4 text-center">MumiakGuides</h1>
 
+    <div class="row">
+        {% for listing in object_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card bg-light" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                {% if listing.logo %}
+                <a href="{% url 'listings' listing.pk %}">
+                    <img src="{{ listing.logo.url }}" class="card-img-top" alt="Logo" width="50px" height="200px">
+                </a>
+                {% endif %}
 
-{% if listing.logo %}
-<a href="{% url 'listings' listing.pk %}"><img src="{{ listing.logo.url }}" alt="Logo"></a>
-{% endif %}
-
-
-<h2>{{ listing.name }}</h2>
-<h2>{{ listing.author.first_name }}  {{ listing.author.last_name }}</h2>
-<p>Description: {{ listing.description }}</p>
-<p>Website: {{ listing.web_url }}</p>
-<p>Hours: {{ listing.hours }}</p>
-<p>Date: {{ listing.date }}</p>
-<p>Start Time: {{ listing.start_time }}</p>
-<p>End Time: {{ listing.end_time }}</p>
-<p>Social Media: {{ listing.social_media }}</p>
-<p>Location Map: {{ listing.map_url }}</p>
-<p>Mobile No: {{ listing.mobile_no }}</p>
-<p>Email: {{ listing.email }}</p>
-<p>Address: {{ listing.address }}</p>
-<p>Payment Method: {{ listing.payment_method }}</p>
-<p>Additional Information: {{ listing.other_info }}</p>
-
-{% endfor %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ listing.name }}</h5>
+                    <p class="card-text">{{ listing.author.first_name }} {{ listing.author.last_name }}</p>
+                    <p class="card-text">{{ listing.description }}</p>
+                    {% if listing.web_url %}
+                    <a href="{{ listing.web_url }}" target="_blank">Website</a>
+                    {% endif %}
+                    <br><br>
+                    <a href="{% url 'listings' listing.pk %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
