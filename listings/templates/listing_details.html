@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block title %} | {{ listing.name }} {% endblock %}
+{% load bleach_tags %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 mb-4">
             {% if listing.logo %}
-            <img src="{{ listing.logo.url }}" class="img-fluid" style="width: 600px; height: 400px;" alt="{{ listing.name }}">
+            <img src="{{ listing.logo.url }}" class="img-fluid" style="width: 600px; height: 400px;"
+                alt="{{ listing.name }}">
             {% endif %}
         </div>
 
@@ -15,7 +17,7 @@
             <h5 class="mb-4">{{ listing.author.first_name }} {{ listing.author.last_name }}</h5>
 
             <p>{{ listing.description }}</p>
-            
+
             {% if listing.web_url %}
             <a href="{{ listing.web_url }}" target="_blank">Website</a>
             {% endif %}
@@ -35,10 +37,6 @@
             <p class="card-text">Opening Time/Start Time: {{ listing.start_time }}</p>
             <p class="card-text">Closing Time/End Time: {{ listing.end_time }}</p>
             <p class="card-text">Social Media Handles: {{ listing.social_media }}</p>
-
-            <a href="{{ listing.map_url }}" target="_blank">Location Map</a>
-            <br><br>
-            
             <p class="card-text">Mobile No: {{ listing.mobile_no }}</p>
             <p class="card-text">Email: {{ listing.email }}</p>
             <p class="card-text">Address: {{ listing.address }}</p>
@@ -47,6 +45,11 @@
             {% if listing.other_info %}
             <p class="card-text">Additional Information: {{ listing.other_info }}</p>
             {% endif %}
+
+            {% with sanitized_map_link=listing_instance.map_url|bleach %}
+            <iframe width="1050" height="450" frameborder="0" style="border:0" src="{{ sanitized_map_link|safe }}" title="Listing Locatin Map" allowfullscreen>
+            </iframe>
+            {% endwith %}
         </div>
     </div>
 
@@ -55,3 +58,5 @@
     </div>
 </div>
 {% endblock %}
+
+Map URL: {{ listing_instance.map_url }}
