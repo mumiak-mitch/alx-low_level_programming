@@ -2,10 +2,12 @@ import bleach
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from datetime import datetime, date
 
 class Listing(models.Model):
     name = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    creation_date = models.DateField(auto_now_add=True)
     # specific = models.ForeignKey(SpecificModel, on_delete=models.CASCADE, null=True, blank=True)
     # category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE, null=True, blank=True)
     # constituencies = models.ManyToManyField(ConstituencyModel)

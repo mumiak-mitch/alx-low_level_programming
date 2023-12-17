@@ -15,8 +15,8 @@
         <div class="col-md-6">
             <h2>{{ listing.name }}</h2>
             <h5 class="mb-4">{{ listing.author.first_name }} {{ listing.author.last_name }}</h5>
-
             <p>{{ listing.description }}</p>
+            <p>Date created: {{ listing.creation_date }}</p>
 
             {% if listing.web_url %}
             <a href="{{ listing.web_url }}" target="_blank" class="btn btn-primary">Website</a>

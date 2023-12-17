@@ -11,7 +11,8 @@ from .forms import ListingForm, UpdateListingForm
 class HomeView(ListView):
     model = Listing
     template_name = 'home.html'
-    ordering = ['-id']
+    #ordering = ['-id']
+    ordering = ['-creation_date']
 
 class ListingDetailView(DetailView):
     model = Listing
