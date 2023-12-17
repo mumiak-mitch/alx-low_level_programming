@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #272727;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}" style="color: #ff652f;">MumiakGuides</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color: #ff652f;">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"
+                            style="color: #ff652f;">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'create_listing' %}">Create Listing</a>
@@ -43,6 +44,15 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'merchant_register' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -55,12 +65,11 @@
 
     <br>
 
-    <footer class="bg-dark text-light">
+    <footer class="text-light"  style="background-color: #272727;">
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-4 mx-auto">
-                    <h5 class="text-center">MumiakGuides</h5>
-                    <!-- Add other relevant information or links -->
+                    <h5 class="text-center"  style="color: #ff652f;">MumiakGuides</h5>
                 </div>
                 <div class="col-md-4 mx-auto">
                     <h5 class="text-center">Links</h5>

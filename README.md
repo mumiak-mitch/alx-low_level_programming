@@ -9,6 +9,8 @@ MumiakGuides is a comprehensive business listing project tailored for Vihiga cou
 - **Business Listing:** Display a curated list of businesses operating in Vihiga county.
 - **Sub County Filtering:** Easily filter business data based on the specific sub-county within Vihiga.
 - **Communication Hub:** Establish a direct line of communication between customers and business owners for inquiries, feedback, and collaboration.
+- **Crud Operation:** A user can create, read, update and delete a listing.
+- **Authentication:** A user has to be logged in for them to be able to perform some operations.
 
 ## Technologies Used
 
