@@ -16,6 +16,7 @@ MumiakGuides is a comprehensive business listing project tailored for Vihiga cou
 - **Django Framework:** Leveraging the Django framework for rapid development, security, and maintainability.
 - **Pillow Package:** Integrating the Pillow package for efficient image processing and handling.
 - **Bootstrap:** Utilizing Bootstrap for modern and responsive styling, enhancing the user experience.
+- **Bleach:** For map manipulation.
 
 ## Future Updates
 

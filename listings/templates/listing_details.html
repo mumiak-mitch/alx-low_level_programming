@@ -22,7 +22,15 @@
             <a href="{{ listing.web_url }}" target="_blank" class="btn btn-primary">Website</a>
             {% endif %}
 
-            <a href="{% url 'listings_update' listing.pk %}" class="btn btn-primary">Update Listing</a>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <a href="{% url 'listings_update' listing.pk %}" class="btn btn-primary btn-block">Update
+                        Listing</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="{% url 'listing_delete' listing.pk %}" class="btn btn-danger btn-block">Delete Listing</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -49,7 +57,8 @@
             {% endif %}
 
             {% with sanitized_map_link=listing_instance.map_url|bleach %}
-            <iframe width="1050" height="450" frameborder="0" style="border:0" src="{{ sanitized_map_link|safe }}" title="Listing Locatin Map" allowfullscreen>
+            <iframe width="1050" height="450" frameborder="0" style="border:0" src="{{ sanitized_map_link|safe }}"
+                title="Listing Locatin Map" allowfullscreen>
             </iframe>
             {% endwith %}
         </div>
