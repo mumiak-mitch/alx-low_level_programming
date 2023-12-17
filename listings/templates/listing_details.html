@@ -19,8 +19,10 @@
             <p>{{ listing.description }}</p>
 
             {% if listing.web_url %}
-            <a href="{{ listing.web_url }}" target="_blank">Website</a>
+            <a href="{{ listing.web_url }}" target="_blank" class="btn btn-primary">Website</a>
             {% endif %}
+
+            <a href="{% url 'listings_update' listing.pk %}" class="btn btn-primary">Update Listing</a>
         </div>
     </div>
 

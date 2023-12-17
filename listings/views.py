@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Listing
-from .forms import ListingForm
+from .forms import ListingForm, UpdateListingForm
 
 # Create your views here.
 #def home(request):
@@ -20,3 +20,9 @@ class AddListingView(CreateView):
     form_class = ListingForm
     template_name = 'add_listing.html'
     #fields = '__all__'
+
+class UpdateListingView(UpdateView):
+    model = Listing
+    template_name = 'update_listing.html'
+    #fields = ('name', 'description', 'web_url', 'hours', 'date', 'start_time', 'end_time', 'social_media', 'logo', 'map_url', 'mobile_no', 'email', 'address', 'payment_method', 'other_info')
+    form_class = UpdateListingForm
