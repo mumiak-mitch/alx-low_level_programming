@@ -15,8 +15,12 @@
         <div class="col-md-6">
             <h2>{{ listing.name }}</h2>
             <h5 class="mb-4">{{ listing.author.first_name }} {{ listing.author.last_name }}</h5>
-            <p>{{ listing.description }}</p>
             <p>Date created: {{ listing.creation_date }}</p>
+
+            <p>Category: {{ listing.category }}</p>
+            <p>Sub County: {{ listing.sub_county }}</p>
+            <p>Ward: {{ listing.ward }}</p>
+            <p>Town: {{ listing.town }}</p>
 
             {% if listing.web_url %}
             <a href="{{ listing.web_url }}" target="_blank" class="btn btn-primary">Website</a>
@@ -39,6 +43,8 @@
 
     <div class="card mt-4">
         <div class="card-body">
+            <p>{{ listing.description }}</p>
+            
             {% if listing.hours %}
             <p class="card-text">Operation Hours: {{ listing.hours }}</p>
             {% endif %}
@@ -59,11 +65,7 @@
             <p class="card-text">Additional Information: {{ listing.other_info }}</p>
             {% endif %}
 
-            {% with sanitized_map_link=listing_instance.map_url|bleach %}
-            <iframe width="1050" height="450" frameborder="0" style="border:0" src="{{ sanitized_map_link|safe }}"
-                title="Listing Locatin Map" allowfullscreen>
-            </iframe>
-            {% endwith %}
+            <iframe width="1050" height="450" frameborder="0" style="border:0" src="{{ listing.map_url|default:'' }}" title="Listing Location Map" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -72,5 +74,3 @@
     </div>
 </div>
 {% endblock %}
-
-Map URL: {{ listing_instance.map_url }}

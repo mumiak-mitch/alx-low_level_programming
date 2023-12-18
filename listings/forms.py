@@ -1,14 +1,41 @@
 from django import forms
-from .models import Listing
+from .models import Listing, Category, Sub_County, Ward, Town
+
+category_choices = Category.objects.all().values_list('categories', 'categories')
+category_choicesList = []
+for item in category_choices:
+    category_choicesList.append(item)
+
+subCounty_choices = Sub_County.objects.all().values_list('subCounties', 'subCounties')
+subCounty_choicesList = []
+for item in subCounty_choices:
+    subCounty_choicesList.append(item)
+
+ward_choices = Ward.objects.all().values_list('wards', 'wards')
+ward_choicesList = []
+for item in ward_choices:
+    ward_choicesList.append(item)
+
+town_choices = Town.objects.all().values_list('towns', 'towns')
+town_choicesList = []
+for item in town_choices:
+    town_choicesList.append(item)
+
 
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ('name', 'author', 'description', 'web_url', 'hours', 'date', 'start_time', 'end_time', 'social_media', 'logo', 'map_url', 'mobile_no', 'email', 'address', 'payment_method', 'other_info')
+        fields = ('name', 'author', 'category', 'sub_county', 'ward', 'town', 'description', 'web_url', 'hours', 'date', 'start_time', 'end_time', 'social_media', 'logo', 'map_url', 'mobile_no', 'email', 'address', 'payment_method', 'other_info')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
+
+            'category': forms.Select(choices=category_choicesList, attrs={'class': 'form-control'}),
+            'sub_county': forms.Select(choices=subCounty_choicesList, attrs={'class': 'form-control'}),
+            'ward': forms.Select(choices=ward_choicesList, attrs={'class': 'form-control'}),
+            'town': forms.Select(choices=town_choicesList, attrs={'class': 'form-control'}),
+
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Provide detailed information about the listing.'}),
             'web_url': forms.URLInput(attrs={'class': 'form-control', 'required': False, 'placeholder':'optional'}),
             'hours': forms.TextInput(attrs={'class': 'form-control', 'required': False, 'placeholder':'optional'}),
@@ -46,6 +73,12 @@ class UpdateListingForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
+
+            'category': forms.Select(choices=category_choicesList, attrs={'class': 'form-control'}),
+            'sub_county': forms.Select(choices=subCounty_choicesList, attrs={'class': 'form-control'}),
+            'ward': forms.Select(choices=ward_choicesList, attrs={'class': 'form-control'}),
+            'town': forms.Select(choices=town_choicesList, attrs={'class': 'form-control'}),
+
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Provide detailed information about the listing.'}),
             'web_url': forms.URLInput(attrs={'class': 'form-control', 'required': False, 'placeholder':'optional'}),
             'hours': forms.TextInput(attrs={'class': 'form-control', 'required': False, 'placeholder':'optional'}),
