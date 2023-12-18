@@ -18,7 +18,7 @@
                     <h5 class="card-title">{{ listing.name }}</h5>
                     <p class="card-text">{{ listing.author.first_name }} {{ listing.author.last_name }}</p>
                     <p class="card-text">{{ listing.creation_date }}</p>
-                    <p class="card-text">{{ listing.description }}</p>
+                    <p class="card-text">{{ listing.description|slice:":70" }}</p>
 
                     <div class="row">
                         {% if listing.web_url %}
