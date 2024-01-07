@@ -1,0 +1,11 @@
+<h1>Listings</h1>
+
+{% for listing in object_list %}
+
+<a href="{% url 'listing' listing.pk %}"> {{ listing.name }} </a>
+{{ listing.owner.first_name }} {{ listing.owner.last_name }}
+{{ listing.description }}
+
+<button><a href="{% url 'listing' listing.pk %}"> View </a></button>
+
+{% endfor %}
