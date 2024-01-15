@@ -2,7 +2,7 @@
 
 # Exclude specific files
 _putchar.c
-main.c
+*-main.c
 
 # Exclude all files with the extension .o (compiled object files)
 *.o
