@@ -1,5 +1,13 @@
-Business Name: {{ listing.name }} 
-Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}
-Description: {{ listing.description }}
+{% extends 'base.html' %}
+{% block title %} {{listing.name }} {% endblock %}
 
-<button><a href="{% url 'home' %}"> Home </a></button>
+{% block content %}
+
+<div class="container mt-4">
+    <h2>{{ listing.name }}</h2>
+    <p>Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
+    <p>Description: {{ listing.description }}</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+</div>
+
+{% endblock %}

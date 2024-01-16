@@ -1,11 +1,24 @@
-<h1>Listings</h1>
+{% extends 'base.html' %}
 
-{% for listing in object_list %}
+{% block content %}
 
-<a href="{% url 'listing' listing.pk %}"> {{ listing.name }} </a>
-{{ listing.owner.first_name }} {{ listing.owner.last_name }}
-{{ listing.description }}
+<h1 class="text-center">Listings</h1>
 
-<button><a href="{% url 'listing' listing.pk %}"> View </a></button>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for listing in object_list %}
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'listing' listing.pk %}">{{ listing.name }}</a></h5>
+                <p class="card-text">
+                    Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}<br>
+                    Description: {{ listing.description }}
+                </p>
+                <a href="{% url 'listing' listing.pk %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-{% endfor %}
+{% endblock %}
