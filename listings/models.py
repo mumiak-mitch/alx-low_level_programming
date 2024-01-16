@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class Listing(models.Model):
@@ -9,3 +10,6 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.name + ' | ' + str(self.owner)
+
+    def get_absolute_url(self):
+        return reverse('listing', args=(str(self.id)))
