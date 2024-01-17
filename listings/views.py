@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from listings.models import Listing
+from .forms import ListingForm
 
 # Create your views here.
 #def home(request):
@@ -17,4 +18,5 @@ class ListingView(DetailView):
 class AddListingView(CreateView):
     model = Listing
     template_name = "add_listing.html"
-    fields = "__all__"
+    #fields = "__all__"
+    form_class = ListingForm
