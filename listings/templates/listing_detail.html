@@ -6,6 +6,7 @@
 <div class="container mt-4">
     <h2>{{ listing.name }}</h2>
     <p>Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
+    <p>Created on: {{ listing.date }}</p>
 
     <a href="{% url 'update_listing' listing.pk %}" class="btn btn-secondary">Edit</a>
     <a href="{% url 'delete_listing' listing.pk %}" class="btn btn-danger">Delete</a>

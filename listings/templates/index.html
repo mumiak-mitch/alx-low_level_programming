@@ -11,6 +11,7 @@
             <h5 class="card-title"><a href="{% url 'listing' listing.pk %}">{{ listing.name }}</a></h5>
             <p class="card-text">
               Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}<br>
+              Created on: {{ listing.date }} <br>
               Description: {{ listing.description }}
             </p>
             <a href="{% url 'listing' listing.pk %}" class="btn btn-primary">View</a>
