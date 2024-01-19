@@ -6,6 +6,9 @@
 <div class="container mt-4">
     <h2>{{ listing.name }}</h2>
     <p>Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
+
+    <a href="{% url 'update_listing' listing.pk %}" class="btn btn-secondary">Edit</a>
+
     <p>Description: {{ listing.description }}</p>
     <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
 </div>
