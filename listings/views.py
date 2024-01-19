@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from listings.models import Listing
 from .forms import ListingForm, UpdateListingForm
 
@@ -10,6 +11,7 @@ from .forms import ListingForm, UpdateListingForm
 class HomeView(ListView):
     model = Listing
     template_name = "index.html"
+    ordering = ['-id']
 
 class ListingView(DetailView):
     model = Listing
@@ -26,3 +28,8 @@ class UpdateListingView(UpdateView):
     template_name = "update_listing.html"
     #fields = ['name', 'description']
     form_class = UpdateListingForm
+
+class DeleteListingView(DeleteView):
+    model = Listing
+    template_name = "delete_listing.html"
+    success_url = reverse_lazy('home')
