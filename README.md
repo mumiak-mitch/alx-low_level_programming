@@ -16,4 +16,8 @@ Step Seven: Delete the Listings.
 
 Step Eight: Order the Listings according to the date created.
 
-Step Nine: user authentication.
+Step Nine: Login and Registration logic.
+
+Step Ten: Restrictions.
+
+Step Eleven
