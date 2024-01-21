@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, ListingView, AddListingView, UpdateListingView, DeleteListingView, AddTownView
+from .views import HomeView, ListingView, AddListingView, UpdateListingView, DeleteListingView, AddTownView, TownView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete_listing/<int:pk>/delete', DeleteListingView.as_view(), name="delete_listing"),
 
     path('add_town', AddTownView.as_view(), name="add_town"),
+    path('town/<str:specific_town>/', TownView, name="town"),
 ]

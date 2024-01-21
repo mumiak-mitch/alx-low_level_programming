@@ -23,3 +23,5 @@ Step Ten: Restrictions.
 Step Eleven: How to escape HTML for Listings.
 
 Step Twelve: Adding towns.
+
+Step Thirteen: Grouping listings according to towns.

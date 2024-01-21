@@ -40,3 +40,7 @@ class AddTownView(CreateView):
     model = Town
     template_name = "add_town.html"
     fields = "__all__"
+
+def TownView(request, specific_town):
+    town_listings = Listing.objects.filter(town=specific_town)
+    return render(request, "town.html", {'specific_town':specific_town.title(), 'town_listings':town_listings})

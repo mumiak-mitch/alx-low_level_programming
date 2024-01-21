@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if town_listings %}
+
+<h1 class="text-center">Listings according to Towns</h1>
+<br><br>
+
+<h2>{{ specific_town }}</h2>
+<br>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    {% for listing in town_listings %}
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'listing' listing.pk %}">{{ listing.name }}</a></h5>
+                <p class="card-text">
+                    Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}<br>
+                    Town: {{ listing.town }}<br>
+                    Created on: {{ listing.date }} <br>
+                    Description: {{ listing.description|slice:":30" }}
+                </p>
+                <a href="{% url 'listing' listing.pk %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<p class="text-center">Town not added or does not exist in Vihiga</p>
+{% endif %}
+
+{% endblock %}
