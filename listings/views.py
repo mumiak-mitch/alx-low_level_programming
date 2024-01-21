@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from listings.models import Listing
+from listings.models import Listing, Town
 from .forms import ListingForm, UpdateListingForm
 
 # Create your views here.
@@ -34,3 +34,9 @@ class DeleteListingView(DeleteView):
     model = Listing
     template_name = "delete_listing.html"
     success_url = reverse_lazy('home')
+
+
+class AddTownView(CreateView):
+    model = Town
+    template_name = "add_town.html"
+    fields = "__all__"
