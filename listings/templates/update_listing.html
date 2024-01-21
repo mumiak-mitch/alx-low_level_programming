@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="container mt-4">
     <h1 class="text-center">Update Listing</h1>
 
@@ -17,7 +18,9 @@
             </form>
         </div>
     </div>
-
 </div>
+{% else %}
+<h5 class="text-center">Please login to access this page</h5>
+{% endif %}
 
 {% endblock %}

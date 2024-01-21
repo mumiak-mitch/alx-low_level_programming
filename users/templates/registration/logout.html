@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
 {% block title %} Logout {% endblock %}
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -26,5 +26,8 @@
         </div>
     </div>
 </div>
+{% else %}
+<h5 class="text-center">Please login to access this page</h5>
+{% endif %}
 
 {% endblock %}
