@@ -1,0 +1,11 @@
+# .gitignore
+
+# Exclude specific files
+_putchar.c
+1-main.c
+3-main.c
+4-main.c
+0-main.c
+
+# Exclude all files with the extension .o (compiled object files)
+*.o
