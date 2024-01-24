@@ -25,3 +25,7 @@ Step Eleven: How to escape HTML for Listings.
 Step Twelve: Adding towns.
 
 Step Thirteen: Grouping listings according to towns.
+
+Step Fourteen: Slugifying urls.
+
+Step Fifteen: Add Town Navbar Links.
