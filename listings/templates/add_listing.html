@@ -19,6 +19,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("founder").value = name;
+</script>
+
 {% else %}
 <h5 class="text-center">Please login to access this page</h5>
 {% endif %}

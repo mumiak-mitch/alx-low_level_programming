@@ -1,4 +1,20 @@
-# Steps
+# MumiakGuides
+
+## Technologies
+
+HTML
+
+CSS
+
+Bootstrap
+
+JavaScript
+
+Python
+
+Django
+
+## Steps
 
 Step One: Project Initiation.
 
@@ -31,3 +47,5 @@ Step Fourteen: Slugifying urls.
 Step Fifteen: Add Town Navbar Links.
 
 Step Sixteen: Determining the owner of the listing.
+
+Step Seventeen: How to restrict who can make listings.

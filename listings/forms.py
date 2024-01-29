@@ -13,7 +13,8 @@ class ListingForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'The name of the business'}),
-            'owner': forms.Select(attrs={'class': 'form-control'}),
+            #'owner': forms.Select(attrs={'class': 'form-control'}),
+            'owner': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Owner', 'value':'', 'id':'founder', 'type':'hidden'}),
             'town': forms.Select(choices=townchoice_list, attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Brief description of the listing'}),
         }
