@@ -29,3 +29,5 @@ Step Thirteen: Grouping listings according to towns.
 Step Fourteen: Slugifying urls.
 
 Step Fifteen: Add Town Navbar Links.
+
+Step Sixteen: Determining the owner of the listing.

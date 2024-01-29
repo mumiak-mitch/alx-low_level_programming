@@ -4,21 +4,23 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="container mt-4">
-    <h1 class="text-center">Update Listing</h1>
+    {% if user.id == listing.owner.id %}
+        <div class="container mt-4">
+            <h1 class="text-center">Update Listing</h1>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form action="" method="post">
-                {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="" method="post">
+                        {% csrf_token %}
 
-                {{ form.as_p }}
+                        {{ form.as_p }}
 
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    {% endif %}
 {% else %}
 <h5 class="text-center">Please login to access this page</h5>
 {% endif %}
