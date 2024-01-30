@@ -14,6 +14,8 @@ Python
 
 Django
 
+Git & GitHub
+
 ## Steps
 
 Step One: Project Initiation.
