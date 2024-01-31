@@ -13,7 +13,7 @@
               Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}<br>
               Town: <a href="{% url 'town' listing.town %}">{{ listing.town }}</a><br>
               Created on: {{ listing.date }} <br>
-              Description: {{ listing.description|slice:":30" }}
+              {{ listing.description|slice:":30" }}
             </p>
             <a href="{% url 'listing' listing.pk %}" class="btn btn-primary">View</a>
           </div>
