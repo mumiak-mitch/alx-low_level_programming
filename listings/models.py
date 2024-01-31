@@ -19,6 +19,10 @@ class Listing(models.Model):
     description = models.TextField()
     date = models.DateField(auto_now_add=True)
     town = models.CharField(max_length=255)
+    likes = models.ManyToManyField(User, related_name="listing_likes")
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.name + ' | ' + str(self.owner)

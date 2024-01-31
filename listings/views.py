@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from listings.models import Listing, Town
 from .forms import ListingForm, UpdateListingForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 #def home(request):
@@ -27,7 +28,13 @@ class ListingView(DetailView):
     def get_context_data(self, *args, **kwargs):
         town_menu = Town.objects.all()
         context = super(ListingView, self).get_context_data(*args, **kwargs)
+
+        tlikes = get_object_or_404(Listing, id=self.kwargs['pk'])
+        total_likes = tlikes.total_likes()
+
         context["town_menu"] = town_menu
+        context["total_likes"] = total_likes
+
         return context
 
 class AddListingView(CreateView):
@@ -84,3 +91,9 @@ def TownView(request, specific_town):
 def TownListView(request):
     town_menulist = Town.objects.all()
     return render(request, "town_list.html", {'town_menulist':town_menulist})
+
+
+def LikeView(request, pk):
+    listing = get_object_or_404(Listing, id=request.POST.get("listing_id"))
+    listing.likes.add(request.user)
+    return HttpResponseRedirect(reverse('listing', args=[str(pk)]))
