@@ -26,8 +26,11 @@
 
     <form action="{% url 'like_listing' listing.pk %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button>
-        - {{ total_likes }} Like(s)
+
+        {% if user.is_authenticated %}
+        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button> - 
+        {% endif %}
+        {{ total_likes }} Like(s)
     </form>
 </div>
 
