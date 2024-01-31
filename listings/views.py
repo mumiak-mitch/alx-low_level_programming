@@ -20,7 +20,7 @@ class HomeView(ListView):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
         context["town_menu"] = town_menu
         return context
-
+    
 class ListingView(DetailView):
     model = Listing
     template_name = "listing_detail.html"
@@ -32,8 +32,13 @@ class ListingView(DetailView):
         tlikes = get_object_or_404(Listing, id=self.kwargs['pk'])
         total_likes = tlikes.total_likes()
 
+        liked = False
+        if tlikes.likes.filter(id=self.request.user.id).exists(): 
+            liked = True
+
         context["town_menu"] = town_menu
         context["total_likes"] = total_likes
+        context["liked"] = liked
 
         return context
 
@@ -95,5 +100,13 @@ def TownListView(request):
 
 def LikeView(request, pk):
     listing = get_object_or_404(Listing, id=request.POST.get("listing_id"))
-    listing.likes.add(request.user)
+    liked = False
+    
+    if listing.likes.filter(id=request.user.id).exists():
+        listing.likes.remove(request.user)
+        liked = False
+    else:
+        listing.likes.add(request.user)
+        liked = True
+
     return HttpResponseRedirect(reverse('listing', args=[str(pk)]))

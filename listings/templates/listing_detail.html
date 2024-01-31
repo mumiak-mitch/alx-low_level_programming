@@ -10,10 +10,10 @@
     <p>Created on: {{ listing.date }}</p>
 
     {% if user.is_authenticated %}
-        {% if user.id == listing.owner.id %}
-            <a href="{% url 'update_listing' listing.pk %}" class="btn btn-secondary">Edit</a>
-            <a href="{% url 'delete_listing' listing.pk %}" class="btn btn-danger">Delete</a>
-        {% endif %}
+    {% if user.id == listing.owner.id %}
+    <a href="{% url 'update_listing' listing.pk %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'delete_listing' listing.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
     {% endif %}
     <br><br>
 
@@ -28,7 +28,11 @@
         {% csrf_token %}
 
         {% if user.is_authenticated %}
-        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button> - 
+            {% if liked %}
+                <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-danger btn-sm">Unlike</button> 
+            {% else %}
+                <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button> 
+            {% endif %}
         {% endif %}
         {{ total_likes }} Like(s)
     </form>
