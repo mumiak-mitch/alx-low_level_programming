@@ -62,4 +62,6 @@ Step Twenty One: Updating the editor.
 
 Step Twenty Two: Adding snippets.
 
-Step Twenty Three: Profile page.
+Step Twenty Three: Edit profile page.
+
+Step Twenty Four: Customizing the edit profile page.
