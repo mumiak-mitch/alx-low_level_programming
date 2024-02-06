@@ -30,4 +30,5 @@ class Listing(models.Model):
         return self.name + ' | ' + str(self.owner)
 
     def get_absolute_url(self):
-        return reverse('listing', args=(str(self.id)))
+        #return reverse('listing', args=(str(self.id)))
+        return reverse('home')
