@@ -57,3 +57,5 @@ Step Eighteen: Listing like button.
 Step Nighteen: Listing dislike button.
 
 Step Twenty: Adding additional fields to the registration form.
+
+Step Twenty One: Updating the editor.

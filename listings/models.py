@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Town(models.Model):
@@ -16,7 +17,8 @@ class Town(models.Model):
 class Listing(models.Model):
     name = models.CharField(max_length=255, unique=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.TextField()
+    #description = models.TextField()
+    description = RichTextField(blank=True, null=True)
     date = models.DateField(auto_now_add=True)
     town = models.CharField(max_length=255)
     likes = models.ManyToManyField(User, related_name="listing_likes")
