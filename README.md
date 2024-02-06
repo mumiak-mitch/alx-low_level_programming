@@ -59,3 +59,5 @@ Step Nighteen: Listing dislike button.
 Step Twenty: Adding additional fields to the registration form.
 
 Step Twenty One: Updating the editor.
+
+Step Twenty Two: How to Add snippets.

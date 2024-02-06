@@ -21,6 +21,7 @@ class Listing(models.Model):
     description = RichTextField(blank=True, null=True)
     date = models.DateField(auto_now_add=True)
     town = models.CharField(max_length=255)
+    snippet = models.CharField(max_length=50)
     likes = models.ManyToManyField(User, related_name="listing_likes")
 
     def total_likes(self):
