@@ -17,6 +17,7 @@ class Town(models.Model):
 class Listing(models.Model):
     name = models.CharField(max_length=255, unique=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    header_image = models.ImageField(null=True, blank=True, upload_to="images/")
     #description = models.TextField()
     description = RichTextField(blank=True, null=True)
     date = models.DateField(auto_now_add=True)

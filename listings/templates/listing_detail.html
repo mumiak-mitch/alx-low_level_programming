@@ -3,8 +3,13 @@
 
 {% block content %}
 
-<div class="container mt-4">
-    <h2>{{ listing.name }}</h2>
+<div class="container">
+    <h2 class="text-center">{{ listing.name }}</h2>
+
+    {% if listing.header_image %}
+    <img src="{{ listing.header_image.url }}" alt="Image">
+    {% endif %}
+    
     <p>Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
     <p>Town: {{ listing.town }}</p>
     <p>Created on: {{ listing.date }}</p>
@@ -15,7 +20,7 @@
     <a href="{% url 'delete_listing' listing.pk %}" class="btn btn-danger">Delete</a>
     {% endif %}
     {% endif %}
-    <br><br>
+    <br>
 
     <p>{{ listing.description|safe }}</p>
     <a href="{% url 'home' %}" class="btn btn-primary">Home</a>

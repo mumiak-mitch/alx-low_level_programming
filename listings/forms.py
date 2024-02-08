@@ -9,7 +9,7 @@ for item in townChoices:
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ('name', 'owner', 'town', 'snippet', 'description')
+        fields = ('name', 'owner', 'town', 'snippet', 'header_image', 'description')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'The name of the business'}),
