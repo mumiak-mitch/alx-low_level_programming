@@ -69,3 +69,5 @@ Step Twenty Four: Customizing the edit profile page.
 Step Twenty Five: Change user password.
 
 Step Twenty Six: Uploading images.
+
+Step Twenty Seven: Customize User Profile Model.
