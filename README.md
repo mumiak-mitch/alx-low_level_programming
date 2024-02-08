@@ -71,3 +71,5 @@ Step Twenty Five: Change user password.
 Step Twenty Six: Uploading images.
 
 Step Twenty Seven: Customize User Profile Model.
+
+Step Twenty Eight: Profile picture and social media links.

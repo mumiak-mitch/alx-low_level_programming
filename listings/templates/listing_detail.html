@@ -9,7 +9,7 @@
     {% if listing.header_image %}
     <img src="{{ listing.header_image.url }}" alt="Image">
     {% endif %}
-    
+
     <p>Owner: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
     <p>Town: {{ listing.town }}</p>
     <p>Created on: {{ listing.date }}</p>
@@ -33,14 +33,53 @@
         {% csrf_token %}
 
         {% if user.is_authenticated %}
-            {% if liked %}
-                <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-danger btn-sm">Unlike</button> 
-            {% else %}
-                <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button> 
-            {% endif %}
+        {% if liked %}
+        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-danger btn-sm">Unlike</button>
+        {% else %}
+        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button>
+        {% endif %}
         {% endif %}
         {{ total_likes }} Like(s)
     </form>
+
+
+    <div class="card mb-3 mt-4">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img src="{{ listing.owner.userprofile.profile_pic.url }}" class="img-fluid rounded-start"
+                    alt="{{ listing.owner.first_name }}">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h5 class="card-title">{{ listing.owner.first_name }} {{ listing.owner.last_name }}</h5>
+                    <p class="card-text">
+                        <small class="text-body-secondary">
+                            {% if listing.owner.userprofile.website_url %}
+                            <a href="{{ listing.owner.userprofile.website_url }}" target="_blank">Website</a> 
+                            {% endif %}
+
+                            {% if listing.owner.userprofile.x_url %}
+                            | <a href="{{ listing.owner.userprofile.x_url }}" target="_blank">X</a>
+                            {% endif %}
+
+                            {% if listing.owner.userprofile.instagram_url %}
+                            | <a href="{{ listing.owner.userprofile.instagram_url }}" target="_blank">Instagram</a> 
+                            {% endif %}
+
+                            {% if listing.owner.userprofile.tiktok_url %}
+                            | <a href="{{ listing.owner.userprofile.tiktok_url }}" target="_blank">Tiktok</a> 
+                            {% endif %}
+
+                            {% if listing.owner.userprofile.facebook_url %}
+                            | <a href="{{ listing.owner.userprofile.facebook_url }}" target="_blank">Facebook</a>
+                            {% endif %}
+                        </small>
+                    </p>
+                    <p class="card-text">{{ listing.owner.userprofile.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
