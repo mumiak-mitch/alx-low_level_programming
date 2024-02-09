@@ -77,3 +77,5 @@ Step Twenty Eight: Profile picture and social media links.
 Step Twenty Nine: Default profile picture with static files.
 
 Step Thirty: Profile page.
+
+Step Thirty One: Cusomized edit profile page.

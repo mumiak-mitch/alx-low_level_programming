@@ -60,7 +60,11 @@
                             Settings
                         </a>
                         <ul class="dropdown-menu">
-                            <li> <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a> </li>
+                            <li> <a class="dropdown-item" href="{% url 'user_profile' user.userprofile.id %}">Profile</a>
+                            <li> <a class="dropdown-item" href="{% url 'edit_profile_details' user.userprofile.id %}">Edit Profile</a> </li>
+                            <li> <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a> </li>
+                            <li> <a class="dropdown-item" href="{% url 'password' %}">Change Password</a> </li>
+                            <div class="dropdown-divider"></div>
                             <li> <a class="dropdown-item" href="{% url 'logout_page' %}">Logout</a> </li>
                         </ul>
                     </li>
