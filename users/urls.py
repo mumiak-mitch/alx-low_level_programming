@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserRegisterView, UserLogoutView, profileEditView, changePasswordView, PasswordChangeSuccess
+from .views import UserRegisterView, UserLogoutView, profileEditView, changePasswordView, PasswordChangeSuccess, ProfilePageView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -12,4 +12,6 @@ urlpatterns = [
 
     path('password/', changePasswordView.as_view(), name="password"),
     path('password-change-success/', PasswordChangeSuccess, name="password-change-success"),
+
+    path('<int:pk>/profile/', ProfilePageView.as_view(), name="user_profile"),
 ]
