@@ -86,4 +86,4 @@ Step Thirty three: Comment section.
 
 Step Thirty four: Comment section customized.
 
-Step Thirty five: Bootstrap login page styling.
+Step Thirty five: Login page styling.
