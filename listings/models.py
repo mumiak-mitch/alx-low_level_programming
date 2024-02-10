@@ -51,3 +51,13 @@ class UserProfile(models.Model):
     
     def get_absolute_url(self):
         return reverse('home')
+    
+
+class Comment(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="comments")
+    comment_name = models.CharField(max_length=255)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' % (self.listing.name, self.comment_name)

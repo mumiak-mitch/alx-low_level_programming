@@ -24,9 +24,8 @@
     <br>
 
     <p>{{ listing.description|safe }}</p>
-    <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
 
-    <br><br>
+    <br>
     <hr>
     <br>
 
@@ -44,6 +43,21 @@
     </form>
 
 
+    <br><br>
+    <h2>Comments</h2>
+    {% if not listing.comments.all %}
+        <p>No comments yet, but you can <a href="!#">add</a>.</p>
+    {% else %}
+        {% for comment in listing.comments.all %}
+            <strong>{{ comment.comment_name }} - {{ comment.date_added }}</strong> <br>
+            {{ comment.body }}
+        {% endfor %}
+    {% endif %}
+
+
+    <br><br>
+    <hr>
+    <br>
     <div class="card mb-3 mt-4">
         <div class="row g-0">
             <div class="col-md-2">
