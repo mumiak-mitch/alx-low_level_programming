@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from listings.models import Listing, Town
-from .forms import ListingForm, UpdateListingForm
+from listings.models import Comment, Listing, Town
+from .forms import ListingForm, UpdateListingForm, CommentForm
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -110,3 +110,22 @@ def LikeView(request, pk):
         liked = True
 
     return HttpResponseRedirect(reverse('listing', args=[str(pk)]))
+
+
+class AddCommentView(CreateView):
+    model = Comment
+    template_name = "new_comment.html"
+    #fields = "__all__"
+    form_class = CommentForm
+
+    def get_context_data(self, *args, **kwargs):
+        town_menu = Town.objects.all()
+        context = super(AddCommentView, self).get_context_data(*args, **kwargs)
+        context["town_menu"] = town_menu
+        return context
+    
+    def form_valid(self, form):
+        form.instance.listing_id = self.kwargs['pk']
+        return super().form_valid(form)
+    
+    success_url = reverse_lazy('home')

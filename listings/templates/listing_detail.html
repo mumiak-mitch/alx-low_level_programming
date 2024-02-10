@@ -25,39 +25,9 @@
 
     <p>{{ listing.description|safe }}</p>
 
+
     <br>
     <hr>
-    <br>
-
-    <form action="{% url 'like_listing' listing.pk %}" method="post">
-        {% csrf_token %}
-
-        {% if user.is_authenticated %}
-        {% if liked %}
-        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-danger btn-sm">Unlike</button>
-        {% else %}
-        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button>
-        {% endif %}
-        {% endif %}
-        {{ total_likes }} Like(s)
-    </form>
-
-
-    <br><br>
-    <h2>Comments</h2>
-    {% if not listing.comments.all %}
-        <p>No comments yet, but you can <a href="!#">add</a>.</p>
-    {% else %}
-        {% for comment in listing.comments.all %}
-            <strong>{{ comment.comment_name }} - {{ comment.date_added }}</strong> <br>
-            {{ comment.body }}
-        {% endfor %}
-    {% endif %}
-
-
-    <br><br>
-    <hr>
-    <br>
     <div class="card mb-3 mt-4">
         <div class="row g-0">
             <div class="col-md-2">
@@ -102,6 +72,39 @@
             </div>
         </div>
     </div>
+
+
+    <br>
+
+    <form action="{% url 'like_listing' listing.pk %}" method="post">
+        {% csrf_token %}
+
+        {% if user.is_authenticated %}
+        {% if liked %}
+        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-danger btn-sm">Unlike</button>
+        {% else %}
+        <button type="submit" name="listing_id" value="{{ listing.id }}" class="btn btn-primary btn-sm">Like</button>
+        {% endif %}
+        {% endif %}
+        {{ total_likes }} Like(s)
+    </form>
+
+
+    <br>
+    <h2>Comments</h2>
+    {% if not listing.comments.all %}
+        <p>No comments yet. 
+            <a href="{% url 'new_comment' listing.pk %}">Add</a>
+        </p>
+    {% else %}
+        <p><a href="{% url 'new_comment' listing.pk %}">Add comments</a></p>
+
+        {% for comment in listing.comments.all %}
+            {{ comment.body }} <br>
+            <strong>{{ comment.comment_name }} - {{ comment.date_added }}</strong>
+        {% endfor %}
+    {% endif %}
+
 </div>
 
 {% endblock %}

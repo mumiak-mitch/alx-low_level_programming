@@ -1,5 +1,5 @@
 from django import forms
-from .models import Listing, Town
+from .models import Comment, Listing, Town
 
 townChoices = Town.objects.all().values_list('towns','towns')
 townchoice_list = []
@@ -30,4 +30,15 @@ class UpdateListingForm(forms.ModelForm):
             'town': forms.Select(choices=townChoices, attrs={'class': 'form-control'}),
             'snippet': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'One line summary'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Brief description of the listing'}),
+        }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('comment_name', 'body')
+
+        widgets = {
+            'comment_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
         }

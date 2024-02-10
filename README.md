@@ -83,3 +83,5 @@ Step Thirty One: Cusomized edit profile page.
 Step Thirty Two: Profile account customization.
 
 Step Thirty three: Comment section.
+
+Step Thirty four: Comment section customized.
