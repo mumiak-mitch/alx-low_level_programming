@@ -79,3 +79,5 @@ Step Twenty Nine: Default profile picture with static files.
 Step Thirty: Profile page.
 
 Step Thirty One: Cusomized edit profile page.
+
+Step Thirty Two: Profile account customization.

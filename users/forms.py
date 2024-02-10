@@ -41,3 +41,32 @@ class ChangePasswordForm(PasswordChangeForm):
         model = User
         fields = ('old_password', 'new_password1', 'new_password2')
 
+
+class EditProfileDetailForm(forms.ModelForm):
+        class Meta:
+            model = UserProfile
+            fields = ("bio", "profile_pic", "website_url", "x_url", "instagram_url", "tiktok_url", "facebook_url")
+            widgets = {
+                "bio" : forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tell your audience about yourself'}),
+                #"profile_pic" : forms.TextInput(attrs={'class': 'form-control'}),
+                "website_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "x_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "instagram_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "tiktok_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "facebook_url" : forms.TextInput(attrs={'class': 'form-control'}),
+            }
+
+
+class ProfileDetailsForm(forms.ModelForm):
+        class Meta:
+            model = UserProfile
+            fields = ("bio", "profile_pic", "website_url", "x_url", "instagram_url", "tiktok_url", "facebook_url")
+            widgets = {
+                "bio" : forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tell your audience about yourself'}),
+                #"profile_pic" : forms.TextInput(attrs={'class': 'form-control'}),
+                "website_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "x_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "instagram_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "tiktok_url" : forms.TextInput(attrs={'class': 'form-control'}),
+                "facebook_url" : forms.TextInput(attrs={'class': 'form-control'}),
+            }
