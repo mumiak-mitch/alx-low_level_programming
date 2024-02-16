@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-allauth = "*"
+django-ckeditor5 = "*"
 django-ckeditor = "*"
 
 [dev-packages]

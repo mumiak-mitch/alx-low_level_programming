@@ -3,29 +3,28 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-
 <div class="container mt-4">
-    <h1 class="text-center">Login</h1>
+    <div class="card mx-auto" style="width: 30rem; background-color: #f8f9fa; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 class="text-center">Login</h1>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form action="" method="post">
-                {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="" method="post">
+                    {% csrf_token %}
 
-                <label class="form-label">Username</label>
-                <input type="text" class="form-control" name="username">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username">
 
-                <label class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
-                <br><br>
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password">
+                    <br><br>
 
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
 
-            <p class="mt-3">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+                <p class="mt-3">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+            </div>
         </div>
     </div>
-
 </div>
-
 {% endblock %}

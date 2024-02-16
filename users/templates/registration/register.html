@@ -3,24 +3,23 @@
 {% block title %} Register {% endblock %}
 
 {% block content %}
-
 <div class="container mt-4">
-    <h1 class="text-center">Register</h1>
+    <div class="card mx-auto" style="width: 30rem; background-color: #f8f9fa; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 class="text-center">Register</h1>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form action="" method="post">
-                {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="" method="post">
+                    {% csrf_token %}
 
-                {{ form.as_p }}
+                    {{ form.as_p }}
 
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
 
-            <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            </div>
         </div>
     </div>
-
 </div>
-
 {% endblock %}
