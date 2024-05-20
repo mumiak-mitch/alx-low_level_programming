@@ -2,11 +2,13 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * @argc: The number of command line arguments
- * @argv: An array containing the command line arguments
- * Return: 0 (Success)
- */
+  * main - Prints all the args content
+  * @argc: argument count
+  * @argv: argument vector
+  *
+  * Return: Always zero
+  */
+
 int main(int argc, char *argv[])
 {
 	int i;
@@ -18,4 +20,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
