@@ -1,8 +1,3 @@
 #!/bin/bash
-
-echo -e '#include <stdio.h>\nint rand() { return 9; }\nvoid srand(unsigned int seed) {}' > rand.c
-gcc -fPIC -shared -o rand.so rand.c
-rm rand.c
-
-LD_PRELOAD=./rand.so ./gm 9 8 10 24 75 9
-
+wget -P /tmp https://github.com/mumiak-mitch/alx-low_level_programming/raw/master/0x18-dynamic_libraries/nrandom.so
+export LD_PRELOAD=/tmp/nrandom.so
