@@ -1,3 +1,8 @@
 #!/bin/bash
-wget -P /tmp https://github.com/xGamal/alx-low_level_programming/raw/master/0x18-dynamic_libraries/nrandom.so
-export LD_PRELOAD=/tmp/nrandom.so
+
+echo -e '#include <stdio.h>\nint rand() { return 9; }\nvoid srand(unsigned int seed) {}' > rand.c
+gcc -fPIC -shared -o rand.so rand.c
+rm rand.c
+
+LD_PRELOAD=./rand.so ./gm 9 8 10 24 75 9
+
